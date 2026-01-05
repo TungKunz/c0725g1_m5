@@ -85,4 +85,4 @@ let courses = [
         rating: 3.5
     },
 ];
-courses.filter(courses=>courses.rating>=4).forEach(item=>console.log(item));
+courses.filter(item=>item.rating>=4).forEach(item=>console.log(item));
