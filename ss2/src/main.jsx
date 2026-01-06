@@ -7,7 +7,7 @@ import SignInForm from "./SignInForm.jsx";
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-      <CustomerTable/>
-      <SignInForm/>
+      {/*<CustomerTable/>*/}
+      {/*<SignInForm/>*/}
   </StrictMode>,
 )
