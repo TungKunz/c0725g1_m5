@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { getAll,deleteCustomer } from "../service/CustomerService.js";
 import NavbarComponent from "./NavbarComponent.jsx";
 import {Link} from "react-router-dom";
+import DeleteComponent from "./DeleteComponent.jsx";
 
 class CustomerList extends Component {
     constructor(props) {
@@ -12,23 +13,19 @@ class CustomerList extends Component {
             customers: [],
             isShowModal: false,
             customerSelector:{},
-            newCustomer:{ma:"",ten:"",diaChi:"",loai:""}
         };
     }
-
+    handleClose = () => this.setState({ isShowModal: false });
+    handleShow = (customer) => this.setState({ isShowModal: true,
+        customerSelector:customer});
     componentDidMount() {
         const data = getAll();
         this.setState({ customers: data });
     }
-
-    handleClose = () => this.setState({ isShowModal: false });
-    handleShow = (customer) => this.setState({ isShowModal: true,
-        customerSelector:customer});
-    handleDelete = ()=>{
-        deleteCustomer(this.state.customerSelector.id);
-        const newData=getAll();
+    onDeleteSuccess = () => {
+        const data = getAll();
         this.setState({
-            customers: newData,
+            customers: data,
             isShowModal: false
         });
     }
@@ -66,22 +63,11 @@ class CustomerList extends Component {
                         </tbody>
                     </table>
                 </div>
-                <Modal show={this.state.isShowModal} onHide={this.handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Xác nhận xóa</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        Bạn có chắc chắn muốn xóa khách hàng <span>{this.state.customerSelector.ten}</span> này không?
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClose}>
-                            Hủy
-                        </Button>
-                        <Button variant="danger" onClick={this.handleDelete}>
-                            Xác nhận xóa
-                        </Button>
-                    </Modal.Footer>
-                </Modal>
+                <DeleteComponent
+                    show={this.state.isShowModal}
+                    handleClose={this.handleClose}
+                    customer={this.state.customerSelector}
+                    onDeleteSuccess={this.onDeleteSuccess}/>
             </>
         );
     }
