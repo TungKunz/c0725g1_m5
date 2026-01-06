@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Button, Modal } from "react-bootstrap"; // Dùng thư viện react-bootstrap
 import "bootstrap/dist/css/bootstrap.css";
-import { getAll,deleteCustomer } from "../service/CustomerService.js";
+import {getAll, deleteCustomer, addCustomer} from "../service/CustomerService.js";
 import NavbarComponent from "./NavbarComponent.jsx";
-import {Link} from "react-router-dom";
 import DeleteComponent from "./DeleteComponent.jsx";
 
 class CustomerList extends Component {
@@ -13,6 +11,7 @@ class CustomerList extends Component {
             customers: [],
             isShowModal: false,
             customerSelector:{},
+            newCustomer: { ten: "", diaChi: "", loai: "Thường" }
         };
     }
     handleClose = () => this.setState({ isShowModal: false });
@@ -29,12 +28,49 @@ class CustomerList extends Component {
             isShowModal: false
         });
     }
+    handleChange = (e) => {
+        this.setState({
+            newCustomer: {
+                ...this.state.newCustomer,
+                [e.target.name]: e.target.value
+            }
+        });
+    };
+
+    handleSave = () => {
+        const currentData =this.state.customers;
+        const lastItem = currentData[currentData.length - 1];
+        const nextId = lastItem ? lastItem.id + 1 : 1;
+        const nextMa = "C00" + nextId;
+
+        const dataToSave = {
+            ...this.state.newCustomer,
+            id: nextId,
+            ma: nextMa
+        };
+        this.setState({
+            customers: [...currentData,dataToSave],
+            isShowModal: false,
+            newCustomer: { ten: "", diaChi: "", loai: "Thường" },
+        })
+        // addCustomer(dataToSave);
+
+        console.log(dataToSave);
+        alert("Thêm thành công!");
+        // window.location.href = "/";
+    };
     render() {
         return (
             <>
                 <NavbarComponent />
                 <div className="container mt-4">
                     <h2>Danh sách khách hàng</h2>
+                    <div className="container">
+                        <h2>Thêm khách hàng mới</h2>
+                        <input value={this.state.newCustomer.ten} name="ten" placeholder="Tên" onChange={this.handleChange} className="form-control mb-2" />
+                        <input value={this.state.newCustomer.diaChi} name="diaChi" placeholder="Địa chỉ" onChange={this.handleChange} className="form-control mb-2" />
+                        <button onClick={this.handleSave} className="btn btn-success">Lưu</button>
+                    </div>
                     <table className="table table-striped">
                         <thead>
                         <tr>
@@ -56,7 +92,6 @@ class CustomerList extends Component {
                                     <button className="btn btn-danger btn-sm" onClick={()=>this.handleShow(c)}>
                                         Delete
                                     </button>
-                                    <Link to={"/add"} className={"btn btn-success btn-sm"}>Thêm mới</Link>
                                 </td>
                             </tr>
                         ))}
