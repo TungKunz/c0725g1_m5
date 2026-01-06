@@ -21,8 +21,8 @@ class CustomerList extends Component {
         const data = getAll();
         this.setState({ customers: data });
     }
-    onDeleteSuccess = () => {
-        const data = getAll();
+    onDeleteSuccess = (id) => {
+        const data = this.state.customers.filter(c => c.id !== id);
         this.setState({
             customers: data,
             isShowModal: false

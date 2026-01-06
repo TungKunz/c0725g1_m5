@@ -1,12 +1,11 @@
 import React, {Component} from "react";
 import {Button, Modal} from "react-bootstrap";
-import {deleteCustomer, getAll} from "../service/CustomerService.js";
 
 class DeleteComponent extends Component{
 
     handleDelete = () => {
-        deleteCustomer(this.props.customer.id);
-        this.props.onDeleteSuccess();
+        const idToDelete = this.props.customer.id;
+        this.props.onDeleteSuccess(idToDelete);
     }
 
     render() {
