@@ -79,6 +79,7 @@ const PlayerManagerComponent = () => {
                                     </button>
                                     <Link to={`/detail/${p.id}`}>Detail</Link>
                                     <Link to={`/${p.id}`}>Detail</Link>
+                                    <Link to={`/edit/${p.id}`}>Edit</Link>
                                 </td>
                             </tr>
                         ))}

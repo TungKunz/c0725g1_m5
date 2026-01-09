@@ -73,3 +73,12 @@ export function save(player) {
 
     initialPlayers.push(newPlayer);
 }
+
+export function update(player) {
+    for (let i = 0; i < initialPlayers.length; i++) {
+        if (initialPlayers[i].id === parseInt(player.id)) {
+            initialPlayers[i] = { ...player, id: parseInt(player.id) };
+            break;
+        }
+    }
+}

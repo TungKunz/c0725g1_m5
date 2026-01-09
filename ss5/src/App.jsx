@@ -8,6 +8,7 @@ import AddComponent from "./component/AddComponent.jsx";
 import NavbarComponent from "./component/NavbarComponent.jsx";
 import {ToastContainer} from "react-toastify";
 import DetailComponent from "./component/DetailComponent.jsx";
+import EditComponent from "./component/EditComponent.jsx";
 function App() {
   const [count, setCount] = useState(0)
 
@@ -20,6 +21,7 @@ function App() {
          </Route>
          <Route path={'/add'} element={<AddComponent/>}></Route>
          <Route path={'/detail/:id'} element={<DetailComponent/>}></Route>
+         <Route path={'/edit/:id'} element={<EditComponent/>}></Route>
      </Routes>
         <ToastContainer/>
     </>
