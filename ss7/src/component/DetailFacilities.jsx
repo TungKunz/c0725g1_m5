@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
-import {findByIdFacilities} from "../service/FacilitiesService.js";
+import {findFacilityById} from "../service/FacilitiesService.js";
 import {findByIdFacilitiesTypes} from "../service/FacilitiesTypesService.js";
 import {findByIdRentTypes} from "../service/RentTypesService.js";
 import {Link} from "react-router-dom";
@@ -12,7 +12,7 @@ const DetailFacilities = () => {
     const {id} = useParams();
     useEffect(() => {
         const fetchData = async () => {
-            let detailFacilities = await findByIdFacilities(id);
+            let detailFacilities = await findFacilityById(id);
             setDetail(detailFacilities);
             if (detailFacilities) {
                 let facilityTypeData = await findByIdFacilitiesTypes(detailFacilities.facilityTypeId);

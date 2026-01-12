@@ -14,16 +14,16 @@
       "floors": 3
     },
     {
-      "id": 2,
       "name": "Green House",
       "area": 200,
       "cost": 5000000,
-      "maxPeople": 6,
       "rentTypeId": 2,
-      "facilityTypeId": 2,
+      "maxPeople": 6,
       "standard": "Standard",
-      "description": "Gần sân golf",
-      "floors": 2
+      "floors": 2,
+      "description": "Gần sân golf ok",
+      "facilityTypeId": 2,
+      "id": 2
     },
     {
       "name": "Tùng",
@@ -52,17 +52,6 @@
       "address": "Đà Nẵng"
     },
     {
-      "id": 2,
-      "name": "Lê Thị Bình",
-      "birthday": "1992-05-10",
-      "gender": "Nữ",
-      "idCard": "987654321",
-      "phone": "0918887776",
-      "email": "binh@gmail.com",
-      "customerTypeId": 2,
-      "address": "Quảng Nam"
-    },
-    {
       "name": "Tùng Tùng",
       "birthday": "2026-01-01",
       "gender": "Nam",
@@ -86,19 +75,66 @@
       "positionId": 5,
       "divisionId": 4,
       "salary": 15000000
+    },
+    {
+      "id": 2,
+      "name": "Trần Văn Chánh",
+      "birthday": "1988-02-10",
+      "idCard": "191283746",
+      "phone": "0912445566",
+      "email": "tam.le@furama.com",
+      "levelId": 3,
+      "positionId": 5,
+      "divisionId": 4,
+      "salary": 15000000
+    },
+    {
+      "id": 3,
+      "name": "Lê Văn Hoàng",
+      "birthday": "1988-02-10",
+      "idCard": "191283746",
+      "phone": "0912445566",
+      "email": "tam.le@furama.com",
+      "levelId": 3,
+      "positionId": 5,
+      "divisionId": 4,
+      "salary": 15000000
+    },
+    {
+      "id": 4,
+      "name": "Nguyễn Thống Nhất",
+      "birthday": "1988-02-10",
+      "idCard": "191283746",
+      "phone": "0912445566",
+      "email": "tam.le@furama.com",
+      "levelId": 3,
+      "positionId": 5,
+      "divisionId": 4,
+      "salary": 15000000
+    },
+    {
+      "id": 5,
+      "name": "Lê Văn Tự Do",
+      "birthday": "1988-02-10",
+      "idCard": "191283746",
+      "phone": "0912445566",
+      "email": "tam.le@furama.com",
+      "levelId": 3,
+      "positionId": 5,
+      "divisionId": 4,
+      "salary": 15000000
     }
   ],
   "contracts": [
     {
-      "id": 1,
-      "contractNumber": "CON-0001",
-      "startDate": "2024-05-01",
-      "endDate": "2024-05-05",
-      "deposit": 1000000,
-      "totalPayment": 40000000,
-      "customerId": 1,
-      "facilityId": 1,
-      "employeeId": 1
+      "contractNumber": "CN-0000",
+      "customerId": "4",
+      "employeeId": "1",
+      "startDate": "2026-01-23",
+      "endDate": "2026-01-30",
+      "totalPayment": 10000000000,
+      "facilityId": 2,
+      "id": 2
     }
   ],
   "facilityTypes": [

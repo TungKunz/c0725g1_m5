@@ -8,7 +8,8 @@ const DeleteModal = ({ show, handleClose, handleDelete, itemInfo }) => {
                 <Modal.Title>Xác nhận xóa</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                Bạn có chắc chắn muốn xóa <strong>{itemInfo?.name}</strong> không?
+                Bạn có chắc chắn muốn xóa <strong>{itemInfo?.name || itemInfo?.contractNumber}</strong>
+                không?
                 <br />
                 <small className="text-danger">Hành động này không thể hoàn tác.</small>
             </Modal.Body>

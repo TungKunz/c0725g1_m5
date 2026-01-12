@@ -1,8 +1,6 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router";
-import {findByIdFacilities} from "../service/FacilitiesService.js";
-import {findByIdFacilitiesTypes} from "../service/FacilitiesTypesService.js";
-import {findByIdRentTypes} from "../service/RentTypesService.js";
+
 import {Link} from "react-router-dom";
 import {findByIdCustomer} from "../service/CustomerService.js";
 import {findByIdCustomerTypes} from "../service/CustomerTypesService.js";

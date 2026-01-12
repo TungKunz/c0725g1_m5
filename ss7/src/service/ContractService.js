@@ -1,36 +1,36 @@
 import axios from "axios";
 
 const URL_PLAYER = "http://localhost:2404";
-export async function findAllFacilities() {
+export async function findAllContracts() {
     try {
-        const res = await axios.get(`${URL_PLAYER}/facilities`);
+        const res = await axios.get(`${URL_PLAYER}/contracts`);
         return res.data;
     } catch (e) {
         console.log(e)
     }
     return [];
 }
-export async function findFacilityById(id) {
+export async function findByIdContract(id) {
     try {
-        const res = await axios.get(`${URL_PLAYER}/facilities/${id}`);
+        const res = await axios.get(`${URL_PLAYER}/contracts/${id}`);
         return res.data;
     } catch (e) {
         console.log(e);
     }
     return null;
 }
-export async function deleteByIdFacilities(id) {
+export async function deleteByIdContract(id) {
     try {
-        const res = await axios.delete(`${URL_PLAYER}/facilities/${id}`);
+        const res = await axios.delete(`${URL_PLAYER}/contracts/${id}`);
         return res.status === 200;
     } catch (e) {
         console.log(e)
     }
     return false;
 }
-export async function addFacilities(facility) {
+export async function addContract(contract) {
     try {
-        const res = await axios.post(`${URL_PLAYER}/facilities`, facility);
+        const res = await axios.post(`${URL_PLAYER}/contracts`, contract);
         return res.status === 201;
 
     } catch (e) {
@@ -38,11 +38,11 @@ export async function addFacilities(facility) {
     }
     return false;
 }
-
-export async function updateFacility(id, facility) {
+export async function editContract(contract) {
     try {
-        const res = await axios.put(`${URL_PLAYER}/facilities/${id}`, facility);
+        const res = await axios.put(`${URL_PLAYER}/contracts/${contract.id}`, contract);
         return res.status === 200;
+
     } catch (e) {
         console.log(e);
     }

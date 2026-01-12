@@ -44,6 +44,7 @@ const ListFacilities = () => {
                                     <div className="d-flex justify-content-between mt-3">
                                         <Link to={`/detail-facilities/${facility.id}`} className="btn btn-success">Chi tiết</Link>
                                         <Link to={`/edit-facilities/${facility.id}`} className="btn btn-warning ">Sửa</Link>
+                                        <Link to={`/add-contract/${facility.id}`} className="btn btn-primary ">New Contract</Link>
                                         <button className={"btn btn-danger"} onClick={() => handleShow(facility)}>Xóa</button>
                                     </div>
                                 </Card.Body>
@@ -58,6 +59,7 @@ const ListFacilities = () => {
                 handleDelete={confirmDelete}
                 itemInfo={selectedItem}
             />
+
         </>
     )
 
