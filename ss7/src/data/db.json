@@ -1,0 +1,252 @@
+{
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Ocean Suite Villa",
+      "area": 500,
+      "cost": 10000000,
+      "maxPeople": 10,
+      "rentTypeId": 3,
+      "facilityTypeId": 1,
+      "standard": "Vip",
+      "description": "View biển, có quản gia riêng",
+      "poolArea": 50,
+      "floors": 3
+    },
+    {
+      "id": 2,
+      "name": "Green House",
+      "area": 200,
+      "cost": 5000000,
+      "maxPeople": 6,
+      "rentTypeId": 2,
+      "facilityTypeId": 2,
+      "standard": "Standard",
+      "description": "Gần sân golf",
+      "floors": 2
+    },
+    {
+      "name": "Tùng",
+      "area": 888,
+      "cost": 888,
+      "facilityTypeId": 1,
+      "rentTypeId": 3,
+      "maxPeople": 88,
+      "standard": "888",
+      "floors": 88,
+      "poolArea": 888,
+      "description": "888",
+      "id": 6
+    }
+  ],
+  "customers": [
+    {
+      "id": 1,
+      "name": "Nguyễn Văn An",
+      "birthday": "1990-01-01",
+      "gender": "Nam",
+      "idCard": "123456789",
+      "phone": "0901234567",
+      "email": "an@gmail.com",
+      "customerTypeId": 1,
+      "address": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Lê Thị Bình",
+      "birthday": "1992-05-10",
+      "gender": "Nữ",
+      "idCard": "987654321",
+      "phone": "0918887776",
+      "email": "binh@gmail.com",
+      "customerTypeId": 2,
+      "address": "Quảng Nam"
+    },
+    {
+      "id": 3,
+      "name": "Trần Vĩnh Hùng",
+      "birthday": "1985-11-20",
+      "gender": "Nam",
+      "idCard": "456123789",
+      "phone": "0905554443",
+      "email": "hung@gmail.com",
+      "customerTypeId": 1,
+      "address": "Huế"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Lê Văn Tám",
+      "birthday": "1988-02-10",
+      "idCard": "191283746",
+      "phone": "0912445566",
+      "email": "tam.le@furama.com",
+      "levelId": 3,
+      "positionId": 5,
+      "divisionId": 4,
+      "salary": 15000000
+    }
+  ],
+  "contracts": [
+    {
+      "id": 1,
+      "contractNumber": "CON-0001",
+      "startDate": "2024-05-01",
+      "endDate": "2024-05-05",
+      "deposit": 1000000,
+      "totalPayment": 40000000,
+      "customerId": 1,
+      "facilityId": 1,
+      "employeeId": 1
+    }
+  ],
+  "facilityTypes": [
+    {
+      "id": 1,
+      "name": "Villa"
+    },
+    {
+      "id": 2,
+      "name": "House"
+    },
+    {
+      "id": 3,
+      "name": "Room"
+    }
+  ],
+  "rentTypes": [
+    {
+      "id": 1,
+      "name": "Năm"
+    },
+    {
+      "id": 2,
+      "name": "Tháng"
+    },
+    {
+      "id": 3,
+      "name": "Ngày"
+    },
+    {
+      "id": 4,
+      "name": "Giờ"
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    },
+    {
+      "id": 4,
+      "name": "Sau đại học"
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "name": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "name": "Giám sát"
+    },
+    {
+      "id": 5,
+      "name": "Quản lý"
+    },
+    {
+      "id": 6,
+      "name": "Giám đốc"
+    }
+  ],
+  "divisions": [
+    {
+      "id": 1,
+      "name": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành chính"
+    },
+    {
+      "id": 3,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "name": "Quản lý"
+    }
+  ],
+  "attachServices": [
+    {
+      "id": 1,
+      "name": "Massage",
+      "unit": "Lượt",
+      "price": 500000
+    },
+    {
+      "id": 2,
+      "name": "Karaoke",
+      "unit": "Giờ",
+      "price": 200000
+    },
+    {
+      "id": 3,
+      "name": "Thức ăn",
+      "unit": "Suất",
+      "price": 150000
+    },
+    {
+      "id": 4,
+      "name": "Nước uống",
+      "unit": "Ly",
+      "price": 20000
+    },
+    {
+      "id": 5,
+      "name": "Thuê xe",
+      "unit": "Ngày",
+      "price": 300000
+    }
+  ]
+}

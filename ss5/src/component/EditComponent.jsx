@@ -5,9 +5,10 @@ import * as Yup from "yup";
 import { findById, getAll, update } from "../service/Player.js";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { getAllPosition } from "../service/Position.js";
 const EditComponent = ({ onSaveSuccess }) => {
     const [editPlayer, setEditPlayer] = useState({
-        id: 1,
+        id: "",
         playerCode: "",
         name: "",
         dob: "",
@@ -15,24 +16,41 @@ const EditComponent = ({ onSaveSuccess }) => {
         position: "",
     });
     const { id } = useParams();
+    const [positionList, setPositionList] = useState([]);
     useEffect(() => {
-        const player = findById(id);
-        if (player) {
-            setEditPlayer(player);
+        const fetchData = async () => {
+            let detail = await findById(id);
+            let list = await getAllPosition();
+            // Đảm bảo position trong initialValues là 1 chuỗi JSON để khớp với option value
+            setEditPlayer({
+                ...detail,
+                position: JSON.stringify(detail.position)
+            });
+            setPositionList(list);
         }
+        fetchData();
     }, [id]);
     const navigate = useNavigate();
-    const handleSubmit = (value) => {
-        console.log("----------------------------------------")
-        console.log(value);
-        update(value);
-        console.log(getAll());
-        toast.success("Sửa thành công", {
-            theme: 'dark',
-            autoClose: 2000
+    const handleSubmit = (values) => {
+        // Chuyển chuỗi JSON ngược lại thành đối tượng trước khi gửi API
+        const playerToUpdate = {
+            ...values,
+            position: JSON.parse(values.position)
+        };
+        update(playerToUpdate).then(status => {
+            if (status) {
+                toast.success("Sửa thành công", {
+                    theme: 'dark',
+                    autoClose: 2000
+                });
+                navigate("/");
+            } else {
+                toast.error("Sửa không thành công", {
+                    theme: 'dark',
+                    autoClose: 2000
+                });
+            }
         });
-        navigate("/");
-
     }
     const validate = Yup.object({
         playerCode: Yup.string().required("Yêu cầu nhập mã cầu thủ").matches(/PL-\d{4}/, "Nhập mã đúng định dạng PL-XXXX"),
@@ -83,11 +101,15 @@ const EditComponent = ({ onSaveSuccess }) => {
                     </div>
                     <div className={'col-md-4 mb-3'}>
                         <label className={'form-label'}>Vị trí</label>
-                        <Field
-                            type={'text'}
-                            name={'position'}
-                            required
-                        />
+                        <Field as="select" name="position" className="form-select">
+                            <option value="">---Chọn---</option>
+                            {positionList.map(p => (
+                                <option key={p.id} value={JSON.stringify(p)}>
+                                    {p.name}
+                                </option>
+                            ))}
+                        </Field>
+
                         {/*<ErrorMessage name={'position'} component={'span'}></ErrorMessage>*/}
                     </div>
                     <div className={'col-md-4 mb-3 d-flex align-items-end'}>

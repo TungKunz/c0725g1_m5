@@ -1,0 +1,70 @@
+{
+  "players": [
+    {
+      "id": 1,
+      "playerCode": "PL-0003",
+      "name": "Kylian Mb",
+      "dob": "1998-12-20",
+      "transferValue": 180000000,
+      "position": {
+        "id": 3,
+        "name": "LW"
+      }
+    },
+    {
+      "id": 2,
+      "playerCode": "PL-0004",
+      "name": "Erling Haaland",
+      "dob": "2000-07-21",
+      "transferValue": 170000000,
+      "position": {
+        "id": 3,
+        "name": "LW"
+      }
+    },
+    {
+      "id": 3,
+      "playerCode": "PL-0001",
+      "name": "Tùng Tùng 2301",
+      "dob": "2026-01-06",
+      "transferValue": 1000001,
+      "position": {
+        "id": 1,
+        "name": "RW"
+      }
+    },
+    {
+      "id": 4,
+      "playerCode": "PL-0001",
+      "name": "Tùng Tùng 2",
+      "dob": "2026-01-06",
+      "transferValue": 1000001,
+      "position": {
+        "id": 1,
+        "name": "RW"
+      }
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "name": "RW"
+    },
+    {
+      "id": 2,
+      "name": "ST"
+    },
+    {
+      "id": 3,
+      "name": "LW"
+    },
+    {
+      "id": 4,
+      "name": "CM"
+    },
+    {
+      "id": 5,
+      "name": "CB"
+    }
+  ]
+}

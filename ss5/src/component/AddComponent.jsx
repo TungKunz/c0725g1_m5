@@ -1,31 +1,49 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import { Button } from "react-bootstrap";
 import * as Yup from "yup";
-import {getAll, save} from "../service/Player.js";
+import {add} from "../service/Player.js";
+import {getAllPosition} from "../service/Position.js";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 const AddComponent = ({ onSaveSuccess }) => {
     const [newPlayer, setNewPlayer] = useState({
-        id: 1,
+        id: "",
         playerCode: "",
         name: "",
         dob: "",
         transferValue: 1000001,
         position: "",
     });
+    const [positionList,setPositionList] = useState([]);
+    useEffect(() => {
+        const fetchData= async ()=>{
+            let list = await getAllPosition();
+            setPositionList(list);
+        }
+        fetchData()
+    }, []);
     const navigate = useNavigate();
     const handleSubmit =(value)=>{
-        console.log("----------------------------------------")
-        console.log(value);
-        save(value);
-        console.log(getAll());
-        toast.success("Thêm mới thành công",{
-            theme: 'dark',
-            autoClose:2000
-        });
-        navigate("/");
+        value={
+            ...value,
+            position:JSON.parse(value.position)
+        }
+        add(value).then(status => {
+            if(status){
+                toast.success("Thêm mới thành công",{
+                    theme: 'dark',
+                    autoClose:2000
+                });
 
+            }else {
+                toast.success("Thêm mới thất bại",{
+                    theme: 'dark',
+                    autoClose:2000
+                });
+            }
+            navigate("/");
+        })
     }
     const validate = Yup.object({
         // id:Yup.string().required("Yêu cầu nhập"),
@@ -77,11 +95,10 @@ const AddComponent = ({ onSaveSuccess }) => {
                         </div>
                         <div className={'col-md-4 mb-3'}>
                             <label className={'form-label'}>Vị trí</label>
-                            <Field
-                                type={'text'}
-                                name={'position'}
-                                required
-                            />
+                            <Field as={"select"} name={"position"}>
+                                <option>---Chọn---</option>
+                                {positionList.map(p=>(<option key={p.id} value={JSON.stringify(p)}>{p.name}</option>))}
+                            </Field>
                             {/*<ErrorMessage name={'position'} component={'span'}></ErrorMessage>*/}
                         </div>
                         <div className={'col-md-4 mb-3 d-flex align-items-end'}>

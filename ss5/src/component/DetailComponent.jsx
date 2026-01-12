@@ -1,12 +1,18 @@
 import {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import {getAllPosition} from "../service/Position.js";
 import {findById} from "../service/Player.js";
 
 const DetailComponent = ()=>{
     const [detail,setDetail] = useState({});
+
     const {id}=useParams();
     useEffect(() => {
-        setDetail(findById(id))
+        const fetchData= async ()=>{
+            let detail = await findById(id);
+            setDetail(detail);
+        }
+        fetchData()
     }, [id]);
     return(
         <>
