@@ -42,7 +42,7 @@
   "customers": [
     {
       "id": 1,
-      "name": "Nguyễn Văn An",
+      "name": "Nguyễn Văn",
       "birthday": "1990-01-01",
       "gender": "Nam",
       "idCard": "123456789",
@@ -63,15 +63,15 @@
       "address": "Quảng Nam"
     },
     {
-      "id": 3,
-      "name": "Trần Vĩnh Hùng",
-      "birthday": "1985-11-20",
+      "name": "Tùng Tùng",
+      "birthday": "2026-01-01",
       "gender": "Nam",
-      "idCard": "456123789",
-      "phone": "0905554443",
-      "email": "hung@gmail.com",
-      "customerTypeId": 1,
-      "address": "Huế"
+      "idCard": "012345678911",
+      "phone": "0909062301",
+      "email": "viettung@gmail.com",
+      "customerTypeId": 4,
+      "address": "Lai trung",
+      "id": 4
     }
   ],
   "employees": [

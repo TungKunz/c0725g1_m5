@@ -27,8 +27,8 @@ function App() {
                 <Route path={"/customer"} element={<ListCustomer />}></Route>
 
                 <Route path={"/add-customer"} element={<AddCustomer />}></Route>
-                <Route path={"/edit-customer"} element={<EditCustomer />}></Route>
-                <Route path={"/detail-customer"} element={<DetailCustomer />}></Route>
+                <Route path={"/edit-customer/:id"} element={<EditCustomer />}></Route>
+                <Route path={"/detail-customer/:id"} element={<DetailCustomer />}></Route>
             </Routes>
             <ToastContainer/>
         </>
