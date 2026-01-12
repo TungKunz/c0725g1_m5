@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {findAllCustomerTypes} from "../service/CustomerTypesService.js";
+import {findAllCustomerType} from "../service/CustomerTypesService.js";
 import * as Yup from "yup";
 import {useNavigate} from "react-router-dom";
 import {editCustomer, findByIdCustomer} from "../service/CustomerService.js";
@@ -24,7 +24,7 @@ const EditCustomer = ()=>{
     useEffect(() => {
         const fetchData= async ()=>{
             let detail = await findByIdCustomer(id);
-            let list = await findAllCustomerTypes();
+            let list = await findAllCustomerType();
             setEdit(detail);
             setCustomerTypeList(list);
         }

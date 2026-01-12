@@ -3,7 +3,6 @@ import {useParams} from "react-router";
 
 import {Link} from "react-router-dom";
 import {findByIdCustomer} from "../service/CustomerService.js";
-import {findByIdCustomerTypes} from "../service/CustomerTypesService.js";
 
 const DetailCustomer = () =>{
     const [detail, setDetail] = useState({});
@@ -14,7 +13,7 @@ const DetailCustomer = () =>{
             let detailCustomer = await findByIdCustomer(id);
             setDetail(detailCustomer);
             if (detailCustomer) {
-                let type = await findByIdCustomerTypes(detailCustomer.customerTypeId);
+                let type = await findByIdCustomer(detailCustomer.customerTypeId);
                 setCustomerTypeList(type);
             }
         }

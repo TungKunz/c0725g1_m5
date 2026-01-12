@@ -1,50 +1,27 @@
 import axios from "axios";
 
-const URL_PLAYER = "http://localhost:2404";
-export async function findAllCustomer() {
-    try {
-        const res = await axios.get(`${URL_PLAYER}/customers`);
-        return res.data;
-    } catch (e) {
-        console.log(e)
-    }
-    return [];
-}
-export async function findByIdCustomer(id) {
-    try {
-        const res = await axios.get(`${URL_PLAYER}/customers/${id}`);
-        return res.data;
-    } catch (e) {
-        console.log(e);
-    }
-    return null;
-}
-export async function deleteByIdCustomer(id) {
-    try {
-        const res = await axios.delete(`${URL_PLAYER}/customers/${id}`);
-        return res.status === 200;
-    } catch (e) {
-        console.log(e)
-    }
-    return false;
-}
-export async function addCustomer(facility) {
-    try {
-        const res = await axios.post(`${URL_PLAYER}/customers`, facility);
-        return res.status === 201;
+const URL_CUSTOMER = "http://localhost:8080/api/customers";
 
-    } catch (e) {
-        console.log(e);
-    }
-    return false;
-}
-export async function editCustomer(customer) {
-    try {
-        const res = await axios.put(`${URL_PLAYER}/customers/${customer.id}`, customer);
-        return res.status === 200;
+export const findAllCustomer = async () => {
+    const res = await axios.get(URL_CUSTOMER);
+    return res.data;
+};
 
-    } catch (e) {
-        console.log(e);
-    }
-    return false;
-}
+export const findByIdCustomer = async (id) => {
+    const res = await axios.get(`${URL_CUSTOMER}/${id}`);
+    return res.data;
+};
+
+export const addCustomer = async (customer) => {
+    const res = await axios.post(URL_CUSTOMER, customer);
+    return res.data;
+};
+
+export const editCustomer = async (id, customer) => {
+    const res = await axios.put(`${URL_CUSTOMER}/${id}`, customer);
+    return res.data;
+};
+
+export const deleteByIdCustomer = async (id) => {
+    await axios.delete(`${URL_CUSTOMER}/${id}`);
+};

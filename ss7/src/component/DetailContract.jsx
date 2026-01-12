@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import { useParams } from "react-router";
 import {findByIdCustomer} from "../service/CustomerService.js";
-import {findByIdCustomerTypes} from "../service/CustomerTypesService.js";
 import {Link} from "react-router-dom";
 import {findByIdContract} from "../service/ContractService.js";
 import {findByIdEmployee} from "../service/EmployeeService.js";
